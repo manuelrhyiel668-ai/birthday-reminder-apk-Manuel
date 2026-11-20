@@ -1,11 +1,11 @@
 {
-  "id": "/",
-  "name": "Confetti — Birthday Reminder",
+  "id": "./",
+  "name": "Confetti – Birthday Reminder",
   "short_name": "Confetti",
   "description": "Good people. Unforgettable days. A happy little place to remember birthdays and plan thoughtful wishes.",
   "lang": "en",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
   "background_color": "#faf9f6",
@@ -13,8 +13,8 @@
   "orientation": "any",
   "categories": ["lifestyle", "productivity"],
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
