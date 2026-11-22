@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import type { Birthday, BirthdayInput, InstallPrompt, View } from './types';
 import {
-  api, birthdayInYear, dateLabel, daysUntil, downloadCalendar, firstName,
+  birthdayInYear, dateLabel, daysUntil, downloadCalendar, firstName,
   initials, reminderLabel, sameDay, sampleBirthdays, turningAge,
 } from './lib';
 import { CakeIllustration } from './components/CakeIllustration';
@@ -15,6 +15,8 @@ import { Calendar } from './components/Calendar';
 import { BirthdayList, EmptyList } from './components/BirthdayList';
 import { BirthdayForm } from './components/BirthdayForm';
 import { Modal } from './components/Modal';
+
+const STORAGE_KEY = 'confetti-birthdays-v1';
 
 const navigation: { id: View; label: string; icon: typeof Heart }[] = [
   { id: 'overview', label: 'Overview', icon: LayoutGrid },
@@ -51,9 +53,15 @@ export default function App() {
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError('');
-    try { const result = await api<{ birthdays: Birthday[] }>('/birthdays'); setRecords(result.birthdays); }
-    catch (error) { setLoadError(error instanceof Error ? error.message : 'Your circle could not be loaded.'); }
-    finally { setLoading(false); }
+    try {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      const parsed: unknown = saved ? JSON.parse(saved) : [];
+      setRecords(Array.isArray(parsed) ? parsed as Birthday[] : []);
+    } catch {
+      setLoadError('Your browser could not read saved birthdays. Check your browser storage settings.');
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => { void load(); }, [load]);
@@ -109,13 +117,16 @@ export default function App() {
   }
   function openBirthday(b: Birthday) { setDetailId(b.id); setConfirmDelete(false); setDetailError(''); }
   function addBirthday() {
-    if (!online) return setToast({ text: 'Connect to the internet to save a new birthday.', error: true });
-    if (loadError || loading) return setToast({ text: 'Let’s reconnect to your circle first. Use Retry above.', error: true });
+    if (loadError || loading) return setToast({ text: 'Please refresh the page and try again.', error: true });
     setForm('new');
   }
   async function saveBirthday(data: BirthdayInput, id?: string) {
-    const result = await api<{ birthday: Birthday }>(`/birthdays${id ? `/${id}` : ''}`, { method: id ? 'PATCH' : 'POST', body: JSON.stringify(data) });
-    setRecords(previous => id ? previous.map(b => b.id === id ? result.birthday : b) : [...previous, result.birthday]);
+    const birthday: Birthday = { ...data, id: id ?? (crypto.randomUUID?.() ?? String(Date.now())) };
+    setRecords(previous => {
+      const updated = id ? previous.map(b => b.id === id ? birthday : b) : [...previous, birthday];
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      return updated;
+    });
     setForm(null);
     setToast({ text: id ? 'The little details are up to date.' : `${firstName(data.name)} is in your circle. Let the remembering begin!` });
     if (!id) setCelebrating(true);
@@ -124,17 +135,22 @@ export default function App() {
     if (favoriteBusy) return;
     setFavoriteBusy(b.id);
     try {
-      const { id, ...input } = b;
-      const result = await api<{ birthday: Birthday }>(`/birthdays/${id}`, { method: 'PATCH', body: JSON.stringify({ ...input, favorite: !b.favorite }) });
-      setRecords(previous => previous.map(person => person.id === id ? result.birthday : person));
+      setRecords(previous => {
+        const updated = previous.map(person => person.id === b.id ? { ...person, favorite: !person.favorite } : person);
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        return updated;
+      });
     } catch (error) { setToast({ text: error instanceof Error ? error.message : 'Could not update favorites.', error: true }); }
     finally { setFavoriteBusy(null); }
   }
   async function deleteBirthday(b: Birthday) {
     setDeleteBusy(true); setDetailError('');
     try {
-      await api(`/birthdays/${b.id}`, { method: 'DELETE' });
-      setRecords(previous => previous.filter(person => person.id !== b.id));
+      setRecords(previous => {
+        const updated = previous.filter(person => person.id !== b.id);
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        return updated;
+      });
       setDetailId(null); setConfirmDelete(false);
       setToast({ text: `${firstName(b.name)}’s birthday was removed from your circle.` });
     } catch (error) { setDetailError(error instanceof Error ? error.message : 'Could not remove this birthday.'); }
