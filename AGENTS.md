@@ -1,6 +1,6 @@
 # Project guide
 
-Confetti is a React/Vite birthday reminder deployed on Netlify. It is an installable web app; Android APK compilation is outside this project's scope.
+Confetti is a React/Vite birthday reminder deployed on Render. It is an installable web app; Android APK compilation is outside this project's scope.
 
 ## Architecture
 
@@ -8,8 +8,8 @@ Confetti is a React/Vite birthday reminder deployed on Netlify. It is an install
 - `src/components/` contains the birthday editor, accessible native dialog wrapper, calendar, birthday list, and original cake artwork.
 - `src/lib.ts` centralizes date calculations, sample content, API access, and RFC 5545 calendar export.
 - `src/styles.css` contains the complete responsive design. The palette uses warm ivory, terracotta, and muted botanical accents. Fraunces is the display typeface; DM Sans is the body typeface.
-- `netlify/server/index.ts` is the single Hono server entrypoint. It handles `/api/*` only. Static Vite output serves the root page and assets.
-- `db/schema.ts` is the source of truth for database tables. `db/index.ts` creates the Drizzle client using `drizzle-orm/netlify-db`.
+- `netlify/server/index.ts` contains the Hono API routes and serves the built Vite app. `server/index.ts` starts the Node server on Render.
+- `db/schema.ts` is the source of truth for database tables. `db/index.ts` creates the Drizzle client using Neon HTTP (`drizzle-orm/neon-http`) and requires `DATABASE_URL`.
 - `netlify/database/migrations/` contains generated SQL and schema snapshots. Netlify applies migrations at deployment. Do not apply them directly or alter an applied migration.
 - `public/manifest.webmanifest`, `public/sw.js`, and `public/icons/` implement installation. `scripts/generate-icons.mjs` regenerates PNG icons from their SVG source.
 
@@ -17,7 +17,7 @@ Confetti is a React/Vite birthday reminder deployed on Netlify. It is an install
 
 Use TypeScript, React function components, plain CSS, and Lucide icons. Keep UI copy warm, concise, and specific. Maintain loading, error, offline, empty, and success states. Dialogs use the native dialog element for focus trapping and keyboard dismissal. Respect reduced-motion preferences. Personal birthday records must never appear in the shared site metadata.
 
-Use Node.js 24 or later for Netlify Server. Keep both `drizzle-orm` and `drizzle-kit` on the beta tag because the Netlify Database adapter requires it. Use `.js` specifiers for server-side TypeScript imports as supported by the server bundler. For database changes, update the schema, then run `npx drizzle-kit generate --name <descriptive_name>`; this is code generation, not a migration application.
+Use Node.js 24 or later for the Render Node server. Keep `drizzle-orm` and `drizzle-kit` on the beta tag as configured. Use `.js` specifiers for server-side TypeScript imports as supported by the server bundler. For database changes, update the schema, then run `npx drizzle-kit generate --name <descriptive_name>`; this is code generation, not a migration application.
 
 Use Netlify Database for all persistent application records. Never replace it with local storage, local JSON, or process memory. Browser memory is only for the current UI. API responses must have `Cache-Control: private, no-store`, and the service worker must never cache them.
 
@@ -35,4 +35,4 @@ The service worker precaches the root HTML and the hashed entry assets reference
 
 ## Running and verification
 
-Use `netlify dev --port 8889` for local work when permitted so the API and frontend run together. The platform automatically validates production builds. Follow the current session's rules about whether local build, development, and test commands may be run.
+Use `npm run build` to build the frontend, then `npm start` with `DATABASE_URL` configured to run the API and frontend together. The platform automatically validates production builds. Follow the current session's rules about whether local build, development, and test commands may be run.
