@@ -228,8 +228,11 @@ export default function App() {
           <div className="floating-decorations" aria-hidden="true">
             <span className="float-balloon balloon-peach"/><span className="float-balloon balloon-sage"/>
             <span className="float-balloon balloon-lilac"/><span className="float-balloon balloon-yellow"/>
+            <span className="float-balloon balloon-rose"/><span className="float-balloon balloon-blue"/>
+            <span className="float-balloon balloon-mini"/><span className="float-balloon balloon-mint"/>
             <span className="float-sparkle sparkle-one">✦</span><span className="float-sparkle sparkle-two">♡</span>
-            <span className="float-sparkle sparkle-three">✧</span>
+            <span className="float-sparkle sparkle-three">✧</span><span className="float-sparkle sparkle-four">✷</span>
+            <span className="confetti-dot dot-one"/><span className="confetti-dot dot-two"/><span className="confetti-dot dot-three"/><span className="confetti-dot dot-four"/>
           </div>
           <div className="circle-stats" aria-label={demo ? 'Sample circle statistics' : 'Your birthday circle statistics'}><div><span className="stat-symbol"><Users size={17}/></span><strong>{loading ? '—' : String(people.length).padStart(2, '0')}</strong><span>in your circle</span></div><span className="stat-divider"/><div><span className="stat-symbol"><Gift size={17}/></span><strong>{loading ? '—' : String(nextThirty).padStart(2, '0')}</strong><span>in the next 30 days</span></div><span className="stat-divider"/><div><span className="stat-symbol"><CalendarDays size={17}/></span><strong>{loading ? '—' : String(thisMonth).padStart(2, '0')}</strong><span>this month</span></div>{demo && <span className="sample-label">SAMPLE CIRCLE</span>}</div>
           <div className="overview-grid">
