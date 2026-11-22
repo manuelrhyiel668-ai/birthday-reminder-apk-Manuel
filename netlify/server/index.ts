@@ -8,6 +8,7 @@ import { birthdays } from '../../db/schema.js';
 
 type Env = { Variables: { circleId: string } };
 const app = new Hono<Env>();
+app.get('/healthz', (c) => c.json({ ok: true }));
 const relationships = ['Friends', 'Family', 'Work', 'Other'];
 const colors = ['peach', 'sage', 'lavender', 'butter', 'rose', 'sky'];
 const uuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
