@@ -845,3 +845,47 @@ main > * { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) {
   .float-balloon, .float-sparkle, .confetti-dot { animation: none; }
 }
+
+
+/* Balloons really fly — and you can tap to pop them */
+.floating-decorations { pointer-events: none; }
+.float-balloon {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  will-change: transform;
+  animation: balloon-flight 5.2s ease-in-out infinite;
+  transition: filter .2s ease, scale .2s ease;
+}
+.float-balloon:hover {
+  filter: brightness(1.12) drop-shadow(0 8px 10px rgba(80, 60, 45, .18));
+  scale: 1.16;
+}
+.float-balloon:active { scale: .18; }
+.float-balloon:focus-visible {
+  outline: 3px solid rgba(173, 88, 70, .65);
+  outline-offset: 7px;
+}
+.balloon-peach { animation-duration: 5.1s; }
+.balloon-sage { animation-duration: 6.4s; animation-delay: -2.1s; }
+.balloon-lilac { animation-duration: 5.8s; animation-delay: -3.4s; }
+.balloon-yellow { animation-duration: 4.7s; animation-delay: -1.2s; }
+.balloon-rose { animation-duration: 6.8s; animation-delay: -4.1s; }
+.balloon-blue { animation-duration: 5.5s; animation-delay: -2.7s; }
+.balloon-mini { animation-duration: 4.9s; animation-delay: -3.8s; }
+.balloon-mint { animation-duration: 6.1s; animation-delay: -1.7s; }
+@keyframes balloon-flight {
+  0%, 100% { transform: translate3d(0, 12px, 0) rotate(-9deg); }
+  22% { transform: translate3d(18px, -24px, 0) rotate(7deg); }
+  48% { transform: translate3d(-12px, -62px, 0) rotate(-5deg); }
+  73% { transform: translate3d(15px, -30px, 0) rotate(10deg); }
+}
+@media (max-width: 760px) {
+  .float-balloon { animation-duration: 5.8s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .float-balloon { animation: none; }
+}
