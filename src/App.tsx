@@ -226,10 +226,10 @@ export default function App() {
 
         {view === 'overview' && <>
           <div className="floating-decorations" aria-hidden="true">
-            <span className="float-balloon balloon-peach"/><span className="float-balloon balloon-sage"/>
-            <span className="float-balloon balloon-lilac"/><span className="float-balloon balloon-yellow"/>
-            <span className="float-balloon balloon-rose"/><span className="float-balloon balloon-blue"/>
-            <span className="float-balloon balloon-mini"/><span className="float-balloon balloon-mint"/>
+            <button type="button" className="float-balloon balloon-peach" aria-label="Pop peach balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-sage" aria-label="Pop green balloon" onClick={() => setCelebrating(true)}/>
+            <button type="button" className="float-balloon balloon-lilac" aria-label="Pop lilac balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-yellow" aria-label="Pop yellow balloon" onClick={() => setCelebrating(true)}/>
+            <button type="button" className="float-balloon balloon-rose" aria-label="Pop pink balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-blue" aria-label="Pop blue balloon" onClick={() => setCelebrating(true)}/>
+            <button type="button" className="float-balloon balloon-mini" aria-label="Pop small balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-mint" aria-label="Pop mint balloon" onClick={() => setCelebrating(true)}/>
             <span className="float-sparkle sparkle-one">✦</span><span className="float-sparkle sparkle-two">♡</span>
             <span className="float-sparkle sparkle-three">✧</span><span className="float-sparkle sparkle-four">✷</span>
             <span className="confetti-dot dot-one"/><span className="confetti-dot dot-two"/><span className="confetti-dot dot-three"/><span className="confetti-dot dot-four"/>
