@@ -731,3 +731,75 @@ select:focus-visible, textarea:focus-visible {
   .kindness-idea { min-height: 0; }
   .kindness-button { margin-top: 12px; min-height: 38px; }
 }
+
+
+/* Floating birthday decorations on the Overview */
+.floating-decorations {
+  position: fixed;
+  inset: 82px 0 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+main > * { position: relative; z-index: 1; }
+.float-balloon {
+  position: absolute;
+  display: block;
+  width: 35px;
+  height: 44px;
+  border-radius: 50% 50% 46% 46%;
+  opacity: .34;
+  filter: drop-shadow(0 5px 7px rgba(80, 60, 45, .08));
+  animation: balloon-drift 8s ease-in-out infinite;
+}
+.float-balloon::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: -5px;
+  width: 6px;
+  height: 6px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+.float-balloon::after {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 47px;
+  width: 1px;
+  height: 75px;
+  background: rgba(140, 120, 105, .35);
+  transform-origin: top;
+  transform: rotate(3deg);
+}
+.balloon-peach { top: 17%; right: 7%; background: #e9a58e; }
+.balloon-sage { top: 48%; right: 3%; width: 29px; height: 37px; background: #a9b99a; animation-delay: -2s; }
+.balloon-lilac { top: 70%; left: 3%; width: 31px; height: 39px; background: #c8b2d0; animation-delay: -4s; }
+.balloon-yellow { top: 28%; left: 12%; width: 25px; height: 33px; background: #e6ca82; animation-delay: -6s; }
+.float-sparkle {
+  position: absolute;
+  color: #c28a6d;
+  opacity: .55;
+  font-size: 24px;
+  animation: sparkle-drift 5s ease-in-out infinite;
+}
+.sparkle-one { top: 25%; right: 16%; }
+.sparkle-two { top: 61%; right: 10%; font-size: 26px; animation-delay: -1.5s; }
+.sparkle-three { top: 83%; left: 10%; font-size: 20px; animation-delay: -3s; }
+@keyframes balloon-drift {
+  0%, 100% { translate: 0 0 rotate(-5deg); }
+  50% { translate: 7px -22px rotate(5deg); }
+}
+@keyframes sparkle-drift {
+  0%, 100% { transform: translateY(0) scale(.9); opacity: .35; }
+  50% { transform: translateY(-12px) scale(1.12); opacity: .7; }
+}
+@media (max-width: 760px) {
+  .floating-decorations { inset: 72px 0 70px; }
+  .float-balloon { opacity: .24; transform: scale(.82); }
+  .balloon-yellow, .sparkle-three { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .float-balloon, .float-sparkle { animation: none; }
+}
