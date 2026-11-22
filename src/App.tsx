@@ -3,7 +3,7 @@ import {
   ArrowDownToLine, ArrowRight, ArrowUpRight, Bell, CalendarDays, CakeSlice,
   Check, CheckCircle2, ChevronRight, CircleHelp, Download, Flower2, Gift,
   Heart, LayoutGrid, LoaderCircle, Plus, Search, Settings2, Share2, ShieldCheck,
-  Smartphone, Sparkles, Trash2, Users, WifiOff, X, Pencil,
+  Smartphone, Sparkles, Trash2, Users, X, Pencil,
 } from 'lucide-react';
 import type { Birthday, BirthdayInput, InstallPrompt, View } from './types';
 import {
@@ -204,7 +204,7 @@ export default function App() {
     <div className="main-shell">
       <header className="topbar"><div className="breadcrumb"><span>Your space</span><ChevronRight size={12}/><strong>{title}</strong></div><button className="mobile-brand" onClick={() => navigate('overview')}><Flower2 size={23}/>confetti.</button><div className="topbar-right"><span className="today-date"><CalendarDays size={15}/>{today.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</span><span className="topbar-divider"/><button className={`icon-button notification-button ${due ? 'has-notifications' : ''}`} aria-label={due ? `${due} upcoming birthday reminders` : 'View birthday reminders'} onClick={() => navigate('reminders')}><Bell size={19} strokeWidth={1.7}/></button><span className="your-circle" title="Your private circle"><Flower2 size={19}/></span></div></header>
       <main id="main-content">
-        {!online && <div className="connection-banner" role="status"><WifiOff size={17}/><span>You’re offline. Connect to load and save birthdays. Calendar files already imported still work in your calendar.</span></div>}
+        
         {loadError && <div className="error-banner" role="alert"><CircleHelp size={19}/><span><strong>Let’s reconnect to your circle.</strong>{loadError}</span><button className="button button-small button-outline" onClick={() => void load()}>Retry</button></div>}
 
         <section className="page-heading"><div><p className="eyebrow">{view === 'overview' ? 'GOOD PEOPLE. UNFORGETTABLE DAYS.' : view === 'birthdays' ? 'ALL YOUR FAVORITE HUMANS' : view === 'calendar' ? 'HAPPY DAYS, ON THE HORIZON' : view === 'reminders' ? 'A LITTLE HEADS-UP GOES A LONG WAY' : 'MAKE YOURSELF AT HOME'}</p><h1>{view === 'overview' ? <>Make their <em>day.</em><span className="heading-sparkle"><Sparkles size={32} strokeWidth={1.1}/></span></> : view === 'birthdays' ? <>Your kind of <em>people.</em></> : view === 'calendar' ? <>Something to <em>celebrate.</em></> : view === 'reminders' ? <>A thoughtful <em>nudge.</em></> : <>Your happy little <em>space.</em></>}</h1><p className="page-subtitle">{view === 'overview' ? 'Because remembering is a little way of saying you care.' : view === 'birthdays' ? 'The people you love, and the days that belong to them.' : view === 'calendar' ? 'A whole year of reasons to make someone smile.' : view === 'reminders' ? 'Keep the important days close. Leave a little time for the thoughtful things.' : 'Keep Confetti close, share a little joy, and make it yours.'}</p></div>{view !== 'settings' && <button className="button button-primary add-birthday" onClick={addBirthday} disabled={loading}><Plus size={18} strokeWidth={1.8}/>Add birthday</button>}</section>
