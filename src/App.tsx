@@ -225,6 +225,12 @@ export default function App() {
         {demo && view !== 'settings' && <div className="sample-banner"><span className="sample-banner-icon"><Sparkles size={16}/></span><p>A little inspiration.<span> You’re exploring sample birthdays. Ready to add your people?</span></p><button onClick={addBirthday}>Start my circle <ArrowRight size={14}/></button></div>}
 
         {view === 'overview' && <>
+          <div className="floating-decorations" aria-hidden="true">
+            <span className="float-balloon balloon-peach"/><span className="float-balloon balloon-sage"/>
+            <span className="float-balloon balloon-lilac"/><span className="float-balloon balloon-yellow"/>
+            <span className="float-sparkle sparkle-one">✦</span><span className="float-sparkle sparkle-two">♡</span>
+            <span className="float-sparkle sparkle-three">✧</span>
+          </div>
           <div className="circle-stats" aria-label={demo ? 'Sample circle statistics' : 'Your birthday circle statistics'}><div><span className="stat-symbol"><Users size={17}/></span><strong>{loading ? '—' : String(people.length).padStart(2, '0')}</strong><span>in your circle</span></div><span className="stat-divider"/><div><span className="stat-symbol"><Gift size={17}/></span><strong>{loading ? '—' : String(nextThirty).padStart(2, '0')}</strong><span>in the next 30 days</span></div><span className="stat-divider"/><div><span className="stat-symbol"><CalendarDays size={17}/></span><strong>{loading ? '—' : String(thisMonth).padStart(2, '0')}</strong><span>this month</span></div>{demo && <span className="sample-label">SAMPLE CIRCLE</span>}</div>
           <div className="overview-grid">
             <div className="overview-main">
