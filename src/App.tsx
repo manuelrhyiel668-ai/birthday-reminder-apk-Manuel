@@ -18,6 +18,17 @@ import { Modal } from './components/Modal';
 
 const STORAGE_KEY = 'confetti-birthdays-v1';
 
+const kindnessIdeas = [
+  'Send them a voice message singing a few lines of “Happy Birthday.”',
+  'Make a tiny photo collage of your favorite memories together.',
+  'Surprise them with their favorite snack or drink.',
+  'Write a short note telling them why they matter to you.',
+  'Plan a quick call and let them choose the topic.',
+  'Share an old funny photo and relive the memory.',
+  'Create a playlist with songs that remind you of them.',
+  'Give them a small handmade gift. Thoughtfulness beats price.',
+];
+
 const navigation: { id: View; label: string; icon: typeof Heart }[] = [
   { id: 'overview', label: 'Overview', icon: LayoutGrid },
   { id: 'birthdays', label: 'My birthdays', icon: CakeSlice },
@@ -45,6 +56,7 @@ export default function App() {
   const [detailError, setDetailError] = useState('');
   const [toast, setToast] = useState<{ text: string; error?: boolean } | null>(null);
   const [celebrating, setCelebrating] = useState(false);
+  const [kindnessIdeaIndex, setKindnessIdeaIndex] = useState(() => Math.floor(Math.random() * kindnessIdeas.length));
   const [installPrompt, setInstallPrompt] = useState<InstallPrompt | null>(null);
   const [installed, setInstalled] = useState(window.matchMedia('(display-mode: standalone)').matches || Boolean((navigator as Navigator & {standalone?: boolean}).standalone));
   const [installOpen, setInstallOpen] = useState(false);
@@ -223,7 +235,7 @@ export default function App() {
                 {filtered.length > 4 && <button className="list-footer-button" onClick={() => navigate('birthdays')}>A few more days to look forward to <ArrowRight size={14}/></button>}
               </section>
             </div>
-            <aside className="overview-aside"><Calendar month={calendarMonth} onMonthChange={setCalendarMonth} people={people} today={today} selected={selectedDate} onSelect={date => { setSelectedDate(date); setView('calendar'); }}/><div className="thought-card"><span className="thought-icon"><Heart size={20} strokeWidth={1.35}/></span><p>It’s not just a date.<br/>It’s <em>their</em> day.</p><span>A call. A card. A little cake.<br/>The small things mean the most.</span><svg viewBox="0 0 82 38" fill="none" aria-hidden="true"><path d="M5 29c16-13 30 6 43-5 8-8-2-22-11-15-11 11 6 26 19 19l20-14m-12 0h12l-3 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div></aside>
+            <aside className="overview-aside"><Calendar month={calendarMonth} onMonthChange={setCalendarMonth} people={people} today={today} selected={selectedDate} onSelect={date => { setSelectedDate(date); setView('calendar'); }}/><div className="thought-card"><span className="thought-icon"><Heart size={20} strokeWidth={1.35}/></span><p>It’s not just a date.<br/>It’s <em>their</em> day.</p><span className="kindness-idea" aria-live="polite">{kindnessIdeas[kindnessIdeaIndex]}</span><button className="text-button kindness-button" onClick={() => setKindnessIdeaIndex(index => (index + 1 + Math.floor(Math.random() * (kindnessIdeas.length - 1))) % kindnessIdeas.length)}><Sparkles size={14}/> Surprise me <ArrowRight size={13}/></button><svg viewBox="0 0 82 38" fill="none" aria-hidden="true"><path d="M5 29c16-13 30 6 43-5 8-8-2-22-11-15-11 11 6 26 19 19l20-14m-12 0h12l-3 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div></aside>
           </div>
           <div className="page-footnote"><ShieldCheck size={13}/><span>Your circle is personal. Saved for this browser, just for you.</span><button onClick={() => navigate('settings')}>How it works <ArrowUpRight size={12}/></button></div>
         </>}
