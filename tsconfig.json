@@ -13,5 +13,5 @@
     "noEmit": true,
     "types": ["vite/client", "node"]
   },
-  "include": ["src", "db", "netlify/server", "vite.config.ts", "drizzle.config.ts"]
+  "include": ["src", "db", "server", "netlify/server", "vite.config.ts", "drizzle.config.ts"]
 }
