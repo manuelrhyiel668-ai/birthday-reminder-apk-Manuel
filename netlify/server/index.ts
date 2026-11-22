@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { serveStatic } from '@hono/node-server/serve-static';
 import { getCookie, setCookie } from 'hono/cookie';
 import { createHash, randomBytes } from 'node:crypto';
 import { and, eq } from 'drizzle-orm';
@@ -99,8 +100,11 @@ app.delete('/api/birthdays/:id', async (c) => {
   return c.json({ ok: true });
 });
 
+// Serve the built frontend on the same origin as the API.
+app.use('*', serveStatic({ root: './dist' }));
+app.get('*', serveStatic({ path: './dist/index.html' }));
+
 app.notFound((c) => c.json({ error: 'This page could not be found.' }, 404));
 app.onError((_error, c) => c.json({ error: 'Your circle could not be reached. Please try again in a moment.' }, 503));
 
-export const config = { path: '/api/*' };
 export default app;
