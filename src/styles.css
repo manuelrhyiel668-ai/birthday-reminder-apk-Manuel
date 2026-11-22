@@ -803,3 +803,45 @@ main > * { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) {
   .float-balloon, .float-sparkle { animation: none; }
 }
+
+
+/* ── Birthday party atmosphere: brighter floating balloons & confetti ── */
+.floating-decorations { z-index: 0; }
+.float-balloon {
+  opacity: .52;
+  box-shadow: inset -7px -5px 10px rgba(80, 50, 45, .08), inset 7px 6px 10px rgba(255,255,255,.34);
+  animation: balloon-float 7s ease-in-out infinite;
+}
+.float-balloon::after { height: 92px; background: linear-gradient(rgba(140,120,105,.42), rgba(140,120,105,.06)); }
+.balloon-peach { top: 13%; right: 8%; width: 43px; height: 54px; }
+.balloon-sage { top: 45%; right: 5%; width: 35px; height: 45px; }
+.balloon-lilac { top: 68%; left: 4%; width: 38px; height: 49px; }
+.balloon-yellow { top: 25%; left: 11%; width: 30px; height: 39px; }
+.balloon-rose { top: 82%; right: 17%; width: 29px; height: 37px; background: #e8a8b2; animation-delay: -3.2s; }
+.balloon-blue { top: 57%; left: 15%; width: 34px; height: 44px; background: #a9c5d4; animation-delay: -5s; }
+.balloon-mini { top: 8%; right: 29%; width: 22px; height: 29px; background: #d7bd91; animation-delay: -1.8s; }
+.balloon-mint { top: 89%; left: 29%; width: 25px; height: 33px; background: #a9c9b5; animation-delay: -4.4s; }
+.float-sparkle { opacity: .78; text-shadow: 0 2px 9px rgba(194,138,109,.16); }
+.sparkle-four { top: 42%; left: 8%; font-size: 21px; animation-delay: -2.4s; }
+.confetti-dot { position: absolute; width: 7px; height: 12px; border-radius: 3px; opacity: .55; animation: confetti-drift 6s ease-in-out infinite; }
+.dot-one { top: 19%; left: 25%; background: #dca68d; transform: rotate(28deg); }
+.dot-two { top: 37%; right: 23%; background: #c2b1d1; animation-delay: -1.2s; }
+.dot-three { top: 76%; right: 9%; background: #d9c27e; animation-delay: -2.8s; }
+.dot-four { top: 58%; left: 7%; background: #a9b99a; animation-delay: -4s; }
+@keyframes balloon-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-5deg); }
+  50% { transform: translate3d(9px, -25px, 0) rotate(6deg); }
+}
+@keyframes confetti-drift {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 5px -16px; }
+}
+@media (max-width: 760px) {
+  .float-balloon { opacity: .34; }
+  .balloon-mini, .balloon-mint, .dot-two, .sparkle-four { display: none; }
+  .balloon-peach { right: 2%; }
+  .balloon-lilac { left: 1%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .float-balloon, .float-sparkle, .confetti-dot { animation: none; }
+}
