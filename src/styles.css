@@ -1512,3 +1512,73 @@ main { max-width:1600px; padding:46px 5.2% 44px; }
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
 }
+
+
+/* MOBILE-FIRST REDESIGN — distinct layout for phone screens */
+@media (max-width:760px) {
+  body { background:#f4f0fa !important; }
+  .app-shell { background:linear-gradient(180deg,#f1eafa 0,#f8f5fc 245px,#f7f6fb 520px) !important; }
+  .topbar {
+    height:72px !important; padding:0 20px !important;
+    background:rgba(255,255,255,.88) !important;
+    border:0 !important; box-shadow:0 5px 24px rgba(57,37,91,.07) !important;
+    backdrop-filter:blur(16px);
+  }
+  .mobile-brand { display:flex !important; align-items:center; gap:9px; font-family:var(--serif); font-size:27px !important; font-weight:600; letter-spacing:-1px; color:#49316d !important; }
+  .mobile-brand svg { color:#e58b9b; }
+  .topbar-right { gap:10px !important; }
+  .today-date { font-size:10px !important; color:#766b89 !important; }
+  .your-circle { background:#eadffc !important; color:#704eb3 !important; border-color:#fff !important; }
+  main { padding:25px 16px 112px !important; }
+  .page-heading { gap:12px !important; margin-bottom:19px !important; }
+  .page-heading>.eyebrow { font-size:9px !important; letter-spacing:2px !important; color:#8968bd !important; }
+  .page-heading h1 { font-size:39px !important; line-height:1.04 !important; letter-spacing:-1.6px !important; color:#302342 !important; }
+  .page-subtitle { margin-top:8px !important; font-size:12px !important; color:#82768f !important; }
+  .add-birthday { width:100% !important; min-height:49px !important; justify-content:center !important; border-radius:15px !important; background:linear-gradient(110deg,#7854d1,#a66bca) !important; box-shadow:0 9px 22px rgba(113,76,180,.2) !important; }
+  .sample-banner { border:1px solid #eadff5 !important; background:rgba(255,255,255,.76) !important; border-radius:16px !important; padding:13px !important; box-shadow:0 5px 18px rgba(67,43,103,.04); }
+  .circle-stats { gap:9px !important; margin:0 0 18px !important; }
+  .circle-stats>div { min-height:105px; padding:13px 11px !important; border:1px solid #ebe3f4 !important; border-radius:17px !important; background:#fff !important; box-shadow:0 7px 20px rgba(60,42,91,.055) !important; }
+  .stat-symbol { width:32px !important; height:32px !important; border-radius:11px !important; }
+  .circle-stats strong { font-size:24px !important; line-height:1 !important; color:#392953 !important; }
+  .circle-stats>div>span:last-child { font-size:9px !important; color:#8b8197 !important; }
+  .overview-grid { display:flex !important; flex-direction:column !important; gap:16px !important; }
+  .overview-main,.overview-aside { width:100% !important; }
+  .hero-card { min-height:0 !important; min-width:0; display:flex !important; flex-direction:column !important; border-radius:24px !important; padding:23px 20px 12px !important; background:linear-gradient(145deg,#f7dfe9 0%,#eee2fb 58%,#e3e6ff 100%) !important; box-shadow:0 13px 28px rgba(85,57,119,.12) !important; }
+  .hero-copy { padding:0 !important; width:100%; }
+  .hero-eyebrow { font-size:8px !important; letter-spacing:1.4px !important; color:#875f91 !important; }
+  .hero-copy h2 { font-size:clamp(38px,11vw,49px) !important; line-height:1.02 !important; margin-top:14px !important; color:#39274f !important; }
+  .hero-birthday { margin-top:8px !important; font-size:11px !important; color:#806b8d !important; }
+  .hero-countdown { margin-top:8px !important; color:#856d94 !important; }
+  .hero-button { margin-top:14px !important; border-radius:12px !important; min-height:40px !important; padding:10px 14px !important; color:#65439e !important; background:#fff !important; }
+  .hero-art { position:relative !important; width:100% !important; height:132px !important; margin:0 !important; padding:0 !important; overflow:hidden; }
+  .cake-illustration { height:150px !important; max-width:220px !important; }
+  .handwritten { top:9px !important; right:8px !important; font-size:12px !important; }
+  .hero-art-label { bottom:5px !important; right:7px !important; font-size:6px !important; }
+  .upcoming-section,.content-card,.calendar-card { border-radius:19px !important; border:1px solid #ebe5f3 !important; box-shadow:0 8px 24px rgba(55,38,86,.055) !important; }
+  .upcoming-section { margin-top:17px !important; }
+  .section-heading { padding:19px 17px 14px !important; }
+  .section-title h2 { font-size:22px !important; color:#35264a !important; }
+  .list-toolbar { padding:0 15px 12px !important; }
+  .birthday-list { padding:0 15px !important; }
+  .birthday-row { min-height:77px !important; border-bottom:1px solid #f0edf4 !important; }
+  .birthday-row:last-child { border-bottom:0 !important; }
+  .avatar { border-radius:14px !important; }
+  .person-name strong { font-size:12px !important; color:#3c2e50 !important; }
+  .countdown-pill { border-radius:9px !important; }
+  .overview-aside { display:flex !important; flex-direction:column !important; }
+  .thought-card { border-radius:20px !important; padding:23px !important; background:linear-gradient(140deg,#eee7ff,#fff0ee) !important; }
+  .thought-card>p { font-size:25px !important; }
+  .calendar-card { padding:18px !important; }
+  .mobile-nav {
+    position:fixed !important; z-index:50 !important; left:12px !important; right:12px !important; bottom:10px !important;
+    display:flex !important; justify-content:space-around !important; align-items:center !important;
+    min-height:67px !important; padding:7px 5px max(7px,env(safe-area-inset-bottom)) !important;
+    border:1px solid rgba(228,218,242,.95) !important; border-radius:20px !important;
+    background:rgba(255,255,255,.94) !important; box-shadow:0 10px 35px rgba(47,31,75,.18) !important;
+    backdrop-filter:blur(18px);
+  }
+  .mobile-nav button { min-width:0 !important; flex:1 !important; display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:4px !important; padding:6px 2px !important; color:#958aa3 !important; font-size:9px !important; border-radius:13px !important; }
+  .mobile-nav button.active { color:#7652c7 !important; background:#f2ecfc !important; font-weight:700 !important; }
+  .mobile-nav button svg { width:19px !important; height:19px !important; }
+  .floating-decorations { opacity:.55; pointer-events:none; }
+}
