@@ -15,6 +15,7 @@ import { Calendar } from './components/Calendar';
 import { BirthdayList, EmptyList } from './components/BirthdayList';
 import { BirthdayForm } from './components/BirthdayForm';
 import { Modal } from './components/Modal';
+import { DashboardWelcome } from './components/DashboardWelcome';
 
 const STORAGE_KEY = 'confetti-birthdays-v1';
 
@@ -225,6 +226,7 @@ export default function App() {
         {demo && view !== 'settings' && <div className="sample-banner"><span className="sample-banner-icon"><Sparkles size={16}/></span><p>A little inspiration.<span> You’re exploring sample birthdays. Ready to add your people?</span></p><button onClick={addBirthday}>Start my circle <ArrowRight size={14}/></button></div>}
 
         {view === 'overview' && <>
+          <DashboardWelcome greeting={greeting} date={today} upcomingCount={people.length} onAddBirthday={addBirthday} />
           <div className="floating-decorations">
             <button type="button" className="float-balloon balloon-peach" aria-label="Pop peach balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-sage" aria-label="Pop green balloon" onClick={() => setCelebrating(true)}/>
             <button type="button" className="float-balloon balloon-lilac" aria-label="Pop lilac balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-yellow" aria-label="Pop yellow balloon" onClick={() => setCelebrating(true)}/>
