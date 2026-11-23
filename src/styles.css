@@ -1359,3 +1359,156 @@ main { max-width:1640px; }
   .hero-card { background:linear-gradient(135deg,#e5d7ff,#f8e0f0 58%,#ffe2d8) !important; }
   .circle-stats>div { background:linear-gradient(145deg,#fff,#f5efff) !important; }
 }
+
+
+/* CONFETTI — complete visual refresh */
+:root {
+  --canvas:#f7f6fb; --paper:#ffffff; --ink:#29243a; --muted:#817b91;
+  --line:#ece8f3; --accent:#7956d8; --accent-dark:#6240bd;
+  --peach:#fff0e9; --radius:22px;
+}
+body { background:#f7f6fb; color:#29243a; }
+.sidebar {
+  width:252px; padding:34px 22px 22px; color:#fff;
+  background:linear-gradient(165deg,#30234f 0%,#49316d 58%,#68447d 100%);
+  border:0; box-shadow:12px 0 40px rgba(45,31,75,.10);
+}
+.brand { color:#fff; font-size:37px; }
+.brand-mark,.brand-period { color:#f4b8bd; }
+.sidebar-intro { color:#d1c6e0; margin-bottom:48px; }
+.nav-eyebrow { color:#b9a9d0; }
+.nav-item { color:#ded5eb; border-radius:13px; padding:14px; min-height:49px; }
+.nav-item:hover { color:#fff; background:rgba(255,255,255,.09); }
+.nav-item.active { color:#fff; background:linear-gradient(100deg,#8b68e5,#b17bc5); box-shadow:0 8px 22px rgba(18,10,36,.22); }
+.nav-count { background:#fff; color:#6949bc; }
+.nav-dot { background:#ffbdad; }
+.install-card { background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.17); border-radius:18px; }
+.install-card-top,.install-card h3 { color:#fff; }
+.install-icon { background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.2); color:#ffd0c4; }
+.install-card p,.install-note { color:#d3c7e2; }
+.install-card button { color:#fff; border-color:rgba(255,255,255,.25); }
+.sidebar-footer { color:#c7b9d8; }
+.sidebar-footer svg { color:#ffb5c0; }
+.main-shell { margin-left:252px; }
+.topbar { height:82px; padding:0 5.2%; background:rgba(255,255,255,.84); border-color:#ebe7f1; }
+main { max-width:1600px; padding:46px 5.2% 44px; }
+.page-heading { margin-bottom:32px; }
+.eyebrow { color:#9274cb; letter-spacing:2px; }
+.page-heading h1 { font-size:clamp(42px,4.2vw,60px); color:#302747; letter-spacing:-2px; }
+.page-heading h1 em { color:#8a62df; }
+.page-subtitle { color:#898397; font-size:13px; }
+.button { border-radius:13px; font-size:12px; }
+.button-primary { background:linear-gradient(120deg,#7956d8,#a36bd1); border:0; box-shadow:0 8px 18px rgba(121,86,216,.22); }
+.button-primary:hover { background:linear-gradient(120deg,#6845c6,#9257c3); }
+.add-birthday { padding:15px 21px; }
+.sample-banner { border-radius:15px; background:#fff8e9; border:1px solid #f4e7c9; padding:14px 17px; }
+.circle-stats { gap:14px; margin:0 0 28px; }
+.circle-stats>div { flex:1; min-width:0; background:#fff; border:1px solid #eee9f5; border-radius:17px; padding:15px 17px; gap:10px; box-shadow:0 7px 24px rgba(55,39,89,.045); }
+.stat-symbol { width:36px; height:36px; justify-content:center; border-radius:12px; background:#f0eaff; color:#805bd2; }
+.circle-stats>div:nth-of-type(2) .stat-symbol { background:#fff0e9; color:#dc8b76; }
+.circle-stats>div:nth-of-type(3) .stat-symbol { background:#e8f5ee; color:#65a184; }
+.circle-stats strong { font-size:25px; color:#33294a; }
+.circle-stats>div>span:last-child { font-size:10px; }
+.stat-divider { display:none; }
+.overview-grid { grid-template-columns:minmax(0,1fr) 300px; gap:25px; }
+.hero-card { min-height:340px; border:0; border-radius:26px; background:linear-gradient(118deg,#f8dce1 0%,#f3e2fa 53%,#e6e3ff 100%); box-shadow:0 14px 35px rgba(83,54,113,.10); }
+.hero-card::after { content:""; position:absolute; width:290px; height:290px; border-radius:50%; background:rgba(255,255,255,.27); right:8%; top:8%; z-index:-1; }
+.hero-copy { padding:38px 0 34px 38px; }
+.hero-eyebrow { color:#946c8d; font-size:8px; }
+.hero-copy h2 { color:#3f3157; font-size:54px; margin-top:23px; }
+.hero-period { color:#d66d88; }
+.hero-birthday { color:#856b8e; font-size:12px; }
+.hero-countdown { color:#896c91; font-size:10px; }
+.countdown-dot { background:#d66d88; }
+.hero-button { border:0; background:#fff; color:#6948a9; border-radius:11px; box-shadow:0 7px 18px rgba(89,54,115,.12); }
+.hero-art { padding-top:20px; }
+.handwritten { color:#966b9d; font-size:16px; }
+.hero-art-label { color:#92789b; }
+.upcoming-section,.calendar-card,.content-card { border:1px solid #eee9f4; border-radius:22px; box-shadow:0 8px 28px rgba(53,38,82,.045); background:#fff; }
+.upcoming-section { margin-top:26px; }
+.section-heading { padding:24px 25px 18px; }
+.section-title h2 { font-size:25px; color:#332847; }
+.section-count { background:#f1ebff; border-color:#e8defa; color:#805bd2; border-radius:8px; }
+.list-toolbar { padding:0 25px 15px; }
+.filter-tabs button { border-radius:9px; padding:8px 12px; }
+.filter-tabs button.selected { background:#f0eaff; color:#704bc2; border-color:#e4d9fb; }
+.birthday-list { padding:0 25px; }
+.birthday-row { min-height:88px; padding:17px 8px; border-radius:12px; }
+.birthday-row:hover { background:#faf8ff; }
+.avatar { width:44px; height:44px; font-size:12px; }
+.person-name strong { font-size:12px; color:#352c49; }
+.person-name>span { font-size:10px; }
+.countdown-pill { border-radius:8px; padding:6px 9px; }
+.calendar-card { padding:22px; }
+.calendar-heading h3 { font-size:13px; color:#392e50; }
+.calendar-day .day-number { height:29px; width:29px; }
+.calendar-day.is-today .day-number { background:#7956d8; box-shadow:0 4px 10px #7956d844; }
+.thought-card { border:0; border-radius:22px; background:linear-gradient(145deg,#f0eaff,#fff0ed); padding:27px 25px; min-height:225px; }
+.thought-card>p { font-size:27px; color:#5c477c; }
+.thought-card>p em { color:#d87880; }
+.thought-icon { background:#fff; color:#8c62d4; width:39px; height:39px; }
+.text-button { color:#805bd2; }
+.page-footnote { color:#a49bad; }
+.search-field,.category-filter { border-radius:12px; background:#fff; border-color:#e9e4f0; }
+.search-field input { height:46px; }
+.list-column-labels { background:#faf9fc; border-color:#eee9f4; }
+.mobile-nav { background:rgba(255,255,255,.95); border-top:1px solid #ece7f3; box-shadow:0 -8px 30px rgba(56,39,88,.09); }
+.modal-inner { border-radius:23px; border-color:#eee7f5; box-shadow:0 24px 80px rgba(38,25,64,.2); }
+.toast { background:#33264d; border-radius:14px; }
+@keyframes arrive { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:1050px) {
+  .sidebar { width:218px; padding-inline:17px; }
+  .main-shell { margin-left:218px; }
+  .overview-grid { grid-template-columns:minmax(0,1fr) 265px; gap:17px; }
+  main { padding-inline:30px; }
+  .topbar { padding-inline:30px; }
+  .hero-copy { padding-left:27px; }
+}
+@media(max-width:760px) {
+  body { background:#f7f6fb; }
+  .sidebar { display:none; }
+  .main-shell { margin-left:0; }
+  .topbar { height:66px; padding:0 19px; background:#fff; }
+  main { padding:28px 17px 105px; }
+  .page-heading { align-items:flex-start; flex-direction:column; gap:17px; margin-bottom:23px; }
+  .page-heading h1 { font-size:40px; }
+  .page-subtitle { font-size:12px; }
+  .add-birthday { align-self:flex-start; margin-top:0; }
+  .sample-banner { flex-wrap:wrap; align-items:flex-start; }
+  .sample-banner>button { margin-left:35px; }
+  .circle-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:19px; }
+  .circle-stats>div { display:flex; flex-direction:column; align-items:flex-start; gap:7px; padding:12px 10px; border-radius:14px; }
+  .stat-symbol { width:30px; height:30px; }
+  .circle-stats strong { font-size:22px; }
+  .circle-stats>div>span:last-child { font-size:9px; line-height:1.3; }
+  .sample-label { grid-column:1/-1; margin:0; }
+  .overview-grid { grid-template-columns:1fr; gap:18px; }
+  .hero-card { min-height:270px; grid-template-columns:1fr 42%; border-radius:21px; }
+  .hero-copy { padding:27px 0 25px 22px; }
+  .hero-copy h2 { font-size:38px; margin-top:17px; }
+  .hero-art { margin-left:-18px; }
+  .handwritten { font-size:11px; right:8px; top:22px; }
+  .hero-art-label { font-size:6px; bottom:15px; }
+  .upcoming-section { margin-top:18px; }
+  .section-heading { padding:19px 17px 15px; }
+  .section-title h2 { font-size:22px; }
+  .list-toolbar { padding:0 15px 12px; flex-wrap:wrap; }
+  .birthday-list { padding:0 15px; }
+  .birthday-row { grid-template-columns:minmax(0,1fr) auto 25px; gap:8px; min-height:75px; padding:13px 3px; }
+  .birthday-row .relationship-tag,.birthday-row .birthday-date { display:none; }
+  .birthday-row .countdown-pill { font-size:8px; }
+  .avatar { width:39px; height:39px; }
+  .overview-aside { display:grid; grid-template-columns:1fr; gap:15px; }
+  .calendar-card { padding:19px; }
+  .thought-card { min-height:190px; }
+  .all-list-toolbar { padding:0 16px 15px; flex-direction:column; align-items:stretch; }
+  .search-field { max-width:none; }
+  .category-filter { width:100%; }
+  .list-column-labels { display:none; }
+  .all-birthdays .birthday-list { padding:0 15px; }
+  .all-birthdays .birthday-row { grid-template-columns:minmax(0,1fr) auto 25px; gap:8px; }
+  .all-birthdays .birthday-row .relationship-tag,.all-birthdays .birthday-row .birthday-date { display:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
+}
