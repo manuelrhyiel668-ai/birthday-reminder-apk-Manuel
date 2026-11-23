@@ -936,5 +936,11 @@ main > * { position: relative; z-index: 1; }
   .float-balloon { width: 38px !important; height: 50px !important; opacity: .82 !important; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .float-balloon { animation: none !important; }
+  /* The user explicitly wants the decorative balloons to keep floating. */
+  .floating-decorations .float-balloon {
+    animation-name: obvious-balloon-flight !important;
+    animation-duration: 4.2s !important;
+    animation-timing-function: ease-in-out !important;
+    animation-iteration-count: infinite !important;
+  }
 }
