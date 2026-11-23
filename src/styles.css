@@ -1582,3 +1582,33 @@ main { max-width:1600px; padding:46px 5.2% 44px; }
   .mobile-nav button svg { width:19px !important; height:19px !important; }
   .floating-decorations { opacity:.55; pointer-events:none; }
 }
+
+
+/* Dashboard welcome component: a new structural feature, not a palette-only override */
+.dashboard-welcome {display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:24px;align-items:center;padding:30px 34px;margin:0 0 25px;border-radius:25px;color:#fff;overflow:hidden;position:relative;background:linear-gradient(115deg,#30234f 0%,#574077 58%,#8a5c91 100%);box-shadow:0 16px 34px rgba(48,35,79,.16)}
+.dashboard-welcome:after {content:"";position:absolute;width:290px;height:290px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:135px;top:-175px;box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025)}
+.dashboard-welcome-copy,.dashboard-welcome-side {position:relative;z-index:1}
+.dashboard-welcome-label {display:flex;align-items:center;gap:8px;color:#f4c9d1;font-size:9px;font-weight:700;letter-spacing:1.6px}
+.dashboard-welcome-copy h2 {margin:17px 0 10px;font:500 clamp(30px,3.5vw,45px)/1.06 var(--serif);letter-spacing:-1.2px}
+.dashboard-welcome-copy h2 em {color:#f4c3cf;font-weight:400}
+.dashboard-welcome-copy p {color:#e0d5e9;font-size:12px;line-height:1.7}
+.dashboard-welcome-action {display:inline-flex;align-items:center;gap:15px;margin-top:19px;padding:11px 15px;border-radius:11px;background:#fff;color:#563b79;font-size:11px;font-weight:700}
+.dashboard-welcome-action:hover {background:#f9eaf0;transform:translateY(-2px)}
+.dashboard-welcome-side {min-height:155px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:20px 22px;border:1px solid rgba(255,255,255,.2);border-radius:19px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px)}
+.dashboard-date-icon {color:#f4c3cf;margin-bottom:9px}
+.dashboard-date-caption {font-size:8px;letter-spacing:1.7px;color:#e2d4eb}
+.dashboard-welcome-side strong {font:500 43px/1.05 var(--serif);margin-top:3px}
+.dashboard-date-month {font-size:11px;color:#eaddec}
+.dashboard-upcoming {margin-top:12px;padding-top:10px;width:100%;border-top:1px solid rgba(255,255,255,.18);color:#eaddec;font-size:9px}
+.dashboard-upcoming b {color:#fff;font-size:13px;margin-right:4px}
+@media(max-width:760px) {
+.dashboard-welcome {grid-template-columns:minmax(0,1fr) 104px;gap:10px;padding:22px 17px;margin-bottom:20px;border-radius:22px}
+.dashboard-welcome-copy h2 {font-size:27px;margin:13px 0 8px;letter-spacing:-.8px}
+.dashboard-welcome-copy p {font-size:10px;max-width:230px}
+.dashboard-welcome-label {font-size:7px;letter-spacing:1px}
+.dashboard-welcome-action {font-size:9px;padding:10px 11px;gap:7px;margin-top:14px}
+.dashboard-welcome-side {min-height:142px;padding:13px 10px;border-radius:15px}
+.dashboard-welcome-side strong {font-size:35px}
+.dashboard-date-month {font-size:9px}
+.dashboard-upcoming {font-size:8px}
+}
