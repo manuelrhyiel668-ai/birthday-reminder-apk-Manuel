@@ -891,10 +891,11 @@ main > * { position: relative; z-index: 1; }
 }
 
 
-/* High-visibility motion layer: keep balloons above the page, not buried behind cards */
+/* Scroll-linked decoration layer: balloons travel with the page while floating */
+main { position: relative; }
 .floating-decorations {
-  position: fixed !important;
-  inset: 78px 0 0 !important;
+  position: absolute !important;
+  inset: 0 !important;
   z-index: 30 !important;
   overflow: hidden;
   pointer-events: none;
@@ -932,7 +933,6 @@ main > * { position: relative; z-index: 1; }
 .float-balloon:active { animation: balloon-pop .18s ease-out forwards !important; }
 @keyframes balloon-pop { to { transform: scale(1.7); opacity: 0; } }
 @media (max-width: 760px) {
-  .floating-decorations { inset: 70px 0 64px !important; }
   .float-balloon { width: 38px !important; height: 50px !important; opacity: .82 !important; }
 }
 @media (prefers-reduced-motion: reduce) {
