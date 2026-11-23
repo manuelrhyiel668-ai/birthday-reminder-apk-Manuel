@@ -1100,3 +1100,130 @@ main { padding-top: 43px; }
 @media (prefers-reduced-motion: no-preference) {
   .nav-item, .button, .content-card, .calendar-card, .upcoming-section { transition-duration: .22s; }
 }
+
+
+/* Clear dashboard redesign: stronger contrast, depth, and card layout */
+:root {
+  --canvas: #f5f1ec;
+  --paper: #fffdf9;
+  --ink: #302a27;
+  --muted: #81736c;
+  --line: #eadfd7;
+  --accent: #b85f4b;
+  --accent-dark: #914633;
+}
+body {
+  background: linear-gradient(135deg,#f8f3ee 0%,#f2ece6 48%,#f8f5f0 100%);
+}
+.sidebar {
+  background: #292522;
+  border-right: 0;
+  color: #fff8f1;
+  box-shadow: 10px 0 35px rgba(48,35,29,.12);
+}
+.brand { color:#fff8f1; }
+.sidebar-intro,.nav-eyebrow,.sidebar-footer { color:#b9aaa0; }
+.nav-item { color:#d7c9c0; }
+.nav-item:hover { background:#403833; color:white; }
+.nav-item.active {
+  color:#fff8f1;
+  background:linear-gradient(100deg,#a95140,#c8755d);
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.nav-count { background:#f3d9ca;color:#864331; }
+.install-card {
+  background:linear-gradient(145deg,#443832,#352d29);
+  border:1px solid #59473f;
+  color:#fff8f1;
+}
+.install-card h3 { color:#fff8f1; }
+.install-card p,.install-note { color:#d0bfb3; }
+.install-card button { color:#f2c5ae;border-color:#786157; }
+.settings-nav { color:#e5d7ce; }
+.main-shell { background:transparent; }
+.topbar {
+  background:rgba(255,253,249,.88);
+  border-bottom:1px solid #e8ddd4;
+}
+main { max-width:1600px; padding-top:46px; }
+.page-heading { margin-bottom:34px; }
+.page-heading h1 { font-size:clamp(43px,5vw,60px); letter-spacing:-2.4px; }
+.page-subtitle { font-size:13px; }
+.add-birthday {
+  border-radius:999px;
+  padding:15px 23px;
+  box-shadow:0 9px 22px rgba(160,76,56,.2);
+}
+.sample-banner {
+  background:#fff8ed;
+  border:1px solid #ead9c4;
+  border-radius:16px;
+  padding:14px 18px;
+}
+.circle-stats {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin:0 0 30px;
+}
+.circle-stats>div {
+  min-height:88px;
+  padding:16px 19px;
+  background:rgba(255,253,249,.92);
+  border:1px solid #e9ddd4;
+  border-radius:18px;
+  box-shadow:0 8px 22px rgba(73,49,38,.055);
+}
+.circle-stats strong { font-size:27px;color:#9f4f3e; }
+.stat-divider { display:none; }
+.overview-grid { grid-template-columns:minmax(0,1fr) 290px; gap:25px; }
+.hero-card {
+  min-height:340px;
+  border:0;
+  border-radius:28px;
+  background:linear-gradient(115deg,#f3d9c9 0%,#f7e7d9 53%,#e9d7ca 100%);
+  box-shadow:0 18px 42px rgba(103,65,47,.12);
+}
+.hero-card::after {
+  content:"";
+  position:absolute;
+  width:260px;height:260px;
+  right:9%;top:50%;
+  transform:translateY(-50%);
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 0 0 22px rgba(255,255,255,.13),0 0 0 48px rgba(255,255,255,.09);
+  pointer-events:none;
+}
+.hero-copy { padding:38px 0 34px 38px; }
+.hero-copy h2 { font-size:clamp(43px,4.7vw,58px); }
+.upcoming-section,.content-card,.calendar-card,.thought-card {
+  border:1px solid #e9ddd4;
+  border-radius:22px;
+  background:#fffdf9;
+  box-shadow:0 10px 28px rgba(67,48,38,.06);
+}
+.upcoming-section { overflow:hidden; }
+.section-heading { padding:22px 25px; }
+.birthday-row { padding:18px 24px; }
+.birthday-row:hover { background:#fbf1eb; }
+.calendar-card,.content-card { padding:23px; }
+.thought-card { background:linear-gradient(145deg,#f4eee0,#eee8d8); }
+.button-primary { border-radius:999px; }
+.modal-inner { border-radius:26px; }
+@media(max-width:900px) {
+  .overview-grid { grid-template-columns:minmax(0,1fr); }
+}
+@media(max-width:760px) {
+  .sidebar { display:none; }
+  .main-shell { margin-left:0; }
+  main { padding:28px 17px 40px; }
+  .topbar { padding:0 17px; }
+  .circle-stats { gap:8px; }
+  .circle-stats>div { min-height:78px; padding:12px 9px; gap:6px; }
+  .circle-stats strong { font-size:23px; }
+  .circle-stats>div>span:last-child { font-size:9px; }
+  .hero-card { min-height:300px; border-radius:22px; }
+  .hero-copy { padding:27px 0 25px 23px; }
+  .hero-card::after { width:160px;height:160px;right:-35px; }
+}
