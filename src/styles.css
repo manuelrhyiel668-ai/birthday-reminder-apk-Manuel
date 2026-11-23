@@ -1227,3 +1227,135 @@ main { max-width:1600px; padding-top:46px; }
   .hero-copy { padding:27px 0 25px 23px; }
   .hero-card::after { width:160px;height:160px;right:-35px; }
 }
+
+
+/* VIVID PREMIUM THEME — clear visual change across desktop and mobile */
+:root {
+  --canvas:#f3efff !important;
+  --paper:#ffffff !important;
+  --ink:#292342 !important;
+  --muted:#766f91 !important;
+  --line:#e7def8 !important;
+  --accent:#7651d6 !important;
+  --accent-dark:#5633b4 !important;
+  --peach:#ffe4dc !important;
+}
+body {
+  background:
+    radial-gradient(ellipse at 82% 4%,rgba(195,164,255,.32),transparent 34rem),
+    radial-gradient(ellipse at 4% 55%,rgba(255,190,190,.23),transparent 30rem),
+    linear-gradient(135deg,#f7f3ff 0%,#f1edff 52%,#fff3f0 100%) !important;
+  color:#292342;
+}
+.sidebar {
+  background:linear-gradient(180deg,#241b43 0%,#34245e 58%,#432b70 100%) !important;
+  color:#fff !important;
+  box-shadow:12px 0 36px rgba(48,29,93,.18) !important;
+}
+.brand,.brand-mark { color:#fff !important; }
+.brand-mark { background:linear-gradient(145deg,#a98aff,#7651d6) !important; }
+.sidebar-intro,.nav-eyebrow,.sidebar-footer { color:#c8bce7 !important; }
+.nav-item { color:#ded5f4 !important; border-radius:14px !important; }
+.nav-item:hover { background:rgba(255,255,255,.12) !important; color:white !important; }
+.nav-item.active {
+  color:#fff !important;
+  background:linear-gradient(100deg,#8b65ed,#b06be5) !important;
+  box-shadow:0 9px 24px rgba(14,8,40,.25),inset 0 1px rgba(255,255,255,.2) !important;
+}
+.install-card {
+  background:linear-gradient(145deg,#4b367c,#35265d) !important;
+  border:1px solid rgba(218,199,255,.28) !important;
+  color:white !important;
+}
+.install-card h3 { color:#fff !important; }
+.install-card p,.install-note { color:#d9c9fa !important; }
+.install-card button { color:#ffd5ca !important; border-color:#8068ad !important; }
+.topbar {
+  background:rgba(255,255,255,.82) !important;
+  border-bottom:1px solid #e7def8 !important;
+  backdrop-filter:blur(18px);
+}
+main { max-width:1640px; }
+.page-heading h1 { color:#292342 !important; }
+.page-heading h1 em { color:#8055dc !important; }
+.eyebrow { color:#8a69c5 !important; }
+.page-subtitle { color:#766f91 !important; }
+.heading-sparkle { color:#f08b83 !important; }
+.button-primary {
+  background:linear-gradient(120deg,#7955dc,#a15cda) !important;
+  border-color:#7955dc !important;
+  color:white !important;
+  box-shadow:0 9px 22px rgba(119,81,214,.28) !important;
+}
+.button-primary:hover {
+  background:linear-gradient(120deg,#6340c3,#8844c5) !important;
+}
+.button-outline { background:#fff !important; border-color:#d9cafa !important; color:#6545b4 !important; }
+.sample-banner {
+  background:linear-gradient(100deg,#fff0e9,#f5edff) !important;
+  border:1px solid #eadcfb !important;
+  color:#7657a6 !important;
+}
+.circle-stats>div {
+  background:linear-gradient(145deg,#fff,#f8f4ff) !important;
+  border:1px solid #e6dcfa !important;
+  box-shadow:0 10px 26px rgba(75,51,130,.08) !important;
+}
+.circle-stats strong { color:#7651d6 !important; }
+.stat-symbol { color:#ed8a83 !important; }
+.hero-card {
+  background:
+    radial-gradient(circle at 83% 28%,rgba(255,255,255,.65),transparent 34%),
+    linear-gradient(120deg,#e7d9ff 0%,#f5dff1 53%,#ffe2d8 100%) !important;
+  border:1px solid #e4d2fa !important;
+  box-shadow:0 18px 42px rgba(105,73,155,.16) !important;
+}
+.hero-copy h2 { color:#38265f !important; }
+.hero-eyebrow { color:#8158bd !important; }
+.hero-period { color:#dc6f78 !important; }
+.hero-button {
+  background:linear-gradient(120deg,#fff,#fff5f4) !important;
+  color:#7047bd !important;
+  border:1px solid rgba(255,255,255,.85) !important;
+}
+.upcoming-section,.content-card,.calendar-card {
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid #e7def8 !important;
+  box-shadow:0 12px 30px rgba(68,47,117,.075) !important;
+}
+.section-title h2 { color:#382b58 !important; }
+.section-count { background:#f0e9ff !important; color:#7956c2 !important; border-color:#e6dafb !important; }
+.filter-tabs button.selected { background:#eee6ff !important; color:#704bc2 !important; border-color:#dfd0ff !important; }
+.birthday-row:hover { background:#faf6ff !important; }
+.avatar.peach { background:#ffe5dc !important; color:#c56f62 !important; }
+.avatar.sage { background:#e4f1e8 !important; color:#548c70 !important; }
+.avatar.lavender { background:#eee5ff !important; color:#8761c4 !important; }
+.avatar.butter { background:#fff1cc !important; color:#ae8836 !important; }
+.avatar.rose { background:#ffe3ec !important; color:#c46b8a !important; }
+.avatar.sky { background:#e1f0ff !important; color:#5286b5 !important; }
+.countdown-pill.soon { background:#fff1df !important; color:#b47a36 !important; border-color:#f8dfbd !important; }
+.countdown-pill.is-birthday { background:#ffe6e7 !important; color:#cf6470 !important; border-color:#f5cbd0 !important; }
+.calendar-day.is-today .day-number { background:#7955d9 !important; }
+.calendar-day.has-birthday:not(.is-today) .day-number { background:#f0e8ff !important; color:#805bc4 !important; }
+.calendar-dot { background:#e58a91 !important; }
+.thought-card {
+  background:linear-gradient(145deg,#f2eaff,#fff0e9) !important;
+  border:1px solid #e8dcfa !important;
+}
+.thought-card>p { color:#5d477e !important; }
+.thought-card>p em { color:#d87880 !important; }
+.thought-icon { background:#fff !important; color:#8c62d4 !important; }
+.mobile-nav {
+  background:rgba(255,255,255,.94) !important;
+  border-top:1px solid #e7def8 !important;
+  box-shadow:0 -8px 30px rgba(70,47,120,.09) !important;
+}
+.modal-inner { border:1px solid #e7def8 !important; }
+.toast { background:#332451 !important; color:white !important; }
+@media(max-width:760px) {
+  body { background:linear-gradient(160deg,#f5f0ff,#fff4f0 75%,#f8f5ff) !important; }
+  .topbar { background:rgba(255,255,255,.92) !important; }
+  .mobile-brand { color:#7651d6 !important; }
+  .hero-card { background:linear-gradient(135deg,#e5d7ff,#f8e0f0 58%,#ffe2d8) !important; }
+  .circle-stats>div { background:linear-gradient(145deg,#fff,#f5efff) !important; }
+}
