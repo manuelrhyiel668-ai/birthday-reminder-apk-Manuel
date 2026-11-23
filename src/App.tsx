@@ -225,7 +225,7 @@ export default function App() {
         {demo && view !== 'settings' && <div className="sample-banner"><span className="sample-banner-icon"><Sparkles size={16}/></span><p>A little inspiration.<span> You’re exploring sample birthdays. Ready to add your people?</span></p><button onClick={addBirthday}>Start my circle <ArrowRight size={14}/></button></div>}
 
         {view === 'overview' && <>
-          <div className="floating-decorations" aria-hidden="true">
+          <div className="floating-decorations">
             <button type="button" className="float-balloon balloon-peach" aria-label="Pop peach balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-sage" aria-label="Pop green balloon" onClick={() => setCelebrating(true)}/>
             <button type="button" className="float-balloon balloon-lilac" aria-label="Pop lilac balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-yellow" aria-label="Pop yellow balloon" onClick={() => setCelebrating(true)}/>
             <button type="button" className="float-balloon balloon-rose" aria-label="Pop pink balloon" onClick={() => setCelebrating(true)}/><button type="button" className="float-balloon balloon-blue" aria-label="Pop blue balloon" onClick={() => setCelebrating(true)}/>
