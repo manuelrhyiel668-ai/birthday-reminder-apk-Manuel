@@ -1,5 +1,5 @@
 /* Cache the application shell only. Personal birthdays always come from the server. */
-const CACHE = 'confetti-shell-v2';
+const CACHE = 'confetti-shell-v3';
 const SHELL = ['/', '/manifest.webmanifest', '/icons/icon-192.png', '/icons/icon-512.png'];
 
 self.addEventListener('install', event => {
